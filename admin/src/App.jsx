@@ -1,6 +1,7 @@
 import React from "react";
 import {CssBaseline, CssVarsProvider, GlobalStyles} from "@mui/joy";
 import customTheme from './theme';
+import Dashboard from "./screens/Dashboard.jsx";
 
 function App() {
     return (
@@ -21,9 +22,7 @@ function App() {
                     },
                 }}
             />
-            <div>
-                test
-            </div>
+            <Dashboard/>
 
 
         </CssVarsProvider>
