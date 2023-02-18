@@ -23,9 +23,9 @@ const ShowContent = styled('div')(({size}) => ({
 
 const imageSet = ['0','1', '2_door1']
 const drawImgs = imageSet.map((i,id) => 
-    <ShowContent size={squereSet[id]}>
+    <ShowContent key={i} size={squereSet[id]}>
       <Grid>
-        <img className='gridImg' width={'150px'} src={`../../../public/blueprint/${i}.png`} />
+        <img className='gridImg' width={'150px'} src={`./blueprint/${i}.png`} />
       </Grid>
     </ShowContent>
 )

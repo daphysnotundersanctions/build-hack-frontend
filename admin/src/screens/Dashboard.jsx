@@ -2,18 +2,15 @@ import React from 'react';
 import TeamNav from "../components/TeamNav.jsx";
 import Layout from "../components/Layout";
 import TopHeaderMenu from "../components/TopHeaderMenu.jsx";
-import {Box, Container, Typography} from "@mui/joy";
-import Valueslider from "../components/basic/Valueslider.jsx";
-import CoffeeSwitch from "../components/basic/CoffeeSwitch.jsx";
+import { Typography } from "@mui/joy";
 import {supabase} from "../API/API.js";
-import SquareSwitch from "../components/basic/SquareSwitch.jsx";
 import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link
 } from "react-router-dom";
 import FilterWidget from "../components/dashboardTabs/FilterWidget.jsx";
+import BasicGrid from "../components/gridStyles/BasicGrid.jsx";
 
 
 function Dashboard() {
@@ -90,8 +87,9 @@ function Dashboard() {
 
                 <Router>
                         <Routes>
-                            <Route path='/' element={<FilterWidget/>} />
-                            <Route path='/centers' element={<BusinessCenter/>} />
+                            <Route path='/' element={<FilterWidget />}/>
+                            <Route path='/centers' element={<BusinessCenter />}/>
+                            <Route path='/places' element={<BasicGrid />}/>
                         </Routes >
                 </Router>
 

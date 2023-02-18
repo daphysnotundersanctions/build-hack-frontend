@@ -48,15 +48,15 @@ function TeamNav() {
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <AssignmentIndRoundedIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>Управление площадью</ListItemContent>
+                            <ListItemContent>Бизнес-центры</ListItemContent>
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton onClick={()=>window.location.href="/centers"}>
+                        <ListItemButton onClick={()=>window.location.href="/places"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <ArticleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>Арендаторы</ListItemContent>
+                            <ListItemContent>Площади</ListItemContent>
                             <Chip
                                 variant="soft"
                                 color="info"
