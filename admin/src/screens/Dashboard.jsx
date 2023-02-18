@@ -2,10 +2,19 @@ import React from 'react';
 import TeamNav from "../components/TeamNav.jsx";
 import Layout from "../components/Layout";
 import TopHeaderMenu from "../components/TopHeaderMenu.jsx";
-import {Container, Typography} from "@mui/joy";
+import {Box, Container, Typography} from "@mui/joy";
 import Valueslider from "../components/basic/Valueslider.jsx";
 import CoffeeSwitch from "../components/basic/CoffeeSwitch.jsx";
-import {getBusinessCenters, supabase} from "../API/API.js";
+import {supabase} from "../API/API.js";
+import SquareSwitch from "../components/basic/SquareSwitch.jsx";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
+import FilterWidget from "../components/dashboardTabs/FilterWidget.jsx";
+
 
 function Dashboard() {
     const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -39,7 +48,20 @@ function Dashboard() {
         getAllCenters();
     }, []);
 
-
+    const BusinessCenter = () => {
+        return(
+            <>
+                <Typography> Списк бизнес-центров (с базы): </Typography>
+                {
+                    centers.map((centers, i)=>{
+                        return(
+                                <Typography key={i}>{centers.name}</Typography>
+                        )
+                    })
+                }
+            </>
+        )
+    }
 
     return (
         <Layout.Root sx={{
@@ -66,24 +88,14 @@ function Dashboard() {
 
             <Layout.Main>
 
-                <Container>
-                    <Typography sx={{mb:2}}> Параметры площади </Typography>
-                    <Valueslider symbol={`м²`}/>
-                    <CoffeeSwitch/>
-                </Container>
-
-                {
-                    centers.map((centers, i)=>{
-                        return(
-                            <>
-                                <Typography>Приветствуем вас в {centers.name}</Typography>
-                            </>
-                        )
-                    })
-                }
+                <Router>
+                        <Routes>
+                            <Route path='/' element={<FilterWidget/>} />
+                            <Route path='/centers' element={<BusinessCenter/>} />
+                        </Routes >
+                </Router>
 
             </Layout.Main>
-
 
         </Layout.Root>
     );

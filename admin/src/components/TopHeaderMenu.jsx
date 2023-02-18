@@ -42,7 +42,7 @@ function TopHeaderMenu({onClickMenu}) {
                     <GroupRoundedIcon />
                 </IconButton>
                 <Typography component="h1" fontWeight="xl">
-                   <Typography>Hello</Typography>
+                   <Typography>Stars Business System</Typography>
                 </Typography>
             </Box>
 
@@ -73,7 +73,7 @@ function TopHeaderMenu({onClickMenu}) {
                     aria-labelledby="account-menu-button"
                     placement="bottom-end"
                 >
-                    <MenuItem onClick={handleCloseAccountMenu}>Аккаунт</MenuItem>
+                    <MenuItem onClick={handleCloseAccountMenu}>Сменить роль</MenuItem>
                     <MenuItem onClick={handleCloseAccountMenu}>Выйти</MenuItem>
                 </Menu>
             </Box>

@@ -36,27 +36,27 @@ function TeamNav() {
                     }}
                 >
                     <ListItem>
-                        <ListItemButton variant="soft" color="primary">
+                        <ListItemButton variant="soft" color="primary" onClick={()=>window.location.href="/"}>
                             <ListItemDecorator sx={{ color: 'inherit' }}>
                                 <PeopleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>test</ListItemContent>
+                            <ListItemContent>Компоненты всякие</ListItemContent>
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton>
+                        <ListItemButton onClick={()=>window.location.href="/centers"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <AssignmentIndRoundedIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>test</ListItemContent>
+                            <ListItemContent>Управление площадью</ListItemContent>
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton>
+                        <ListItemButton onClick={()=>window.location.href="/centers"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <ArticleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>Policies</ListItemContent>
+                            <ListItemContent>Арендаторы</ListItemContent>
                             <Chip
                                 variant="soft"
                                 color="info"
