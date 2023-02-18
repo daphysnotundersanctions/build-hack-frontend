@@ -3,6 +3,7 @@ import TeamNav from "../components/TeamNav.jsx";
 import Layout from "../components/Layout";
 import TopHeaderMenu from "../components/TopHeaderMenu.jsx";
 import {Typography} from "@mui/joy";
+import GridTest from "../components/GridTest.jsx";
 
 function Dashboard() {
     const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -32,6 +33,8 @@ function Dashboard() {
 
             <Layout.Main>
                 <Typography sx={{mb:2}}> Hello </Typography>
+
+                <GridTest/>
             </Layout.Main>
 
 
