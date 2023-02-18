@@ -7,21 +7,11 @@ import {supabase} from "../../API/API.js";
 
 const squereSet = ["100","200","300","100","200","300","100","200","300",];
 
-const colorSet = {
-    freeNeedRepair : {
-      color : 'invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)'
-    },
-    freeNoRepair : {
-      color :  'invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) brightness(90%) contrast(100%)'
-    },
-    busyOnRepair :{
-      color : 'invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)'
-    },
-    busyNoRepair : {
-      color : 'invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)'
-    },
-}
-
+const freeNeedRepair = 'invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)'
+const freeNoRepair = 'invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) brightness(90%) contrast(100%)'
+const busyOnRepair = 'invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)'
+const busyNoRepair = 'invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)'
+ 
 
 
 const ShowContent = styled('div')(({size, stageName}) => ({
@@ -34,7 +24,7 @@ const ShowContent = styled('div')(({size, stageName}) => ({
   },
   '&:hover': {
     'img' : {
-      // filter: colorSet.stageName.color,
+      filter: `"${stageName}"`,
     }
   }
 }));
