@@ -1,0 +1,19 @@
+.grid {
+
+}
+.gridWrapper {
+    position: relative;
+    display: grid;
+}
+.grid:hover::before {
+    content: '123px';
+    position: absolute;
+}
+
+.gridImg {
+
+}
+.gridImg:hover { 
+    transform: scale(1.2);
+    transition: transform 0.2s;
+}

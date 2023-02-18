@@ -5,7 +5,8 @@ import TopHeaderMenu from "../components/TopHeaderMenu.jsx";
 import {Container, Typography} from "@mui/joy";
 import Valueslider from "../components/basic/Valueslider.jsx";
 import CoffeeSwitch from "../components/basic/CoffeeSwitch.jsx";
-import {getBusinessCenters, supabase} from "../API/API.js";
+import {supabase} from "../API/API.js";
+import BasicGrid from '../components/gridStyles/BasciGrid.jsx';
 
 function Dashboard() {
     const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -70,6 +71,7 @@ function Dashboard() {
                     <Typography sx={{mb:2}}> Параметры площади </Typography>
                     <Valueslider symbol={`м²`}/>
                     <CoffeeSwitch/>
+                    <BasicGrid />
                 </Container>
 
                 {
