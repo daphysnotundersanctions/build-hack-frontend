@@ -151,8 +151,6 @@ function Renters() {
                     />
 
 
-
-
                 <Stack direction="row" gap={2}>
                 <Typography>Активен: </Typography>
                 <Switch
@@ -182,7 +180,6 @@ function Renters() {
                     </Grid>
                 </Grid>
             }
-
 
         </>
     );

@@ -12,7 +12,7 @@ const freeNoRepair = 'invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) br
 const busyOnRepair = 'invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)';
 const busyNoRepair = 'invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)';
  
-const findStyle = ({i}) => {
+const findStyle = (i) => {
   switch (i) {
     case 'freeNeedRepair':
       return "invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)"
