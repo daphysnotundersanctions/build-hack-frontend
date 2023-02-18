@@ -2,16 +2,16 @@ import React from 'react';
 import {supabase} from "../../API/API.js";
 import {
     AspectRatio,
-    Autocomplete,
     Button,
     Card,
-    CardOverflow,
+    CardOverflow, Checkbox,
     CircularProgress,
     Divider,
     Grid,
-    Input, TextField,
+    Input, Stack, Switch,
     Typography
 } from "@mui/joy";
+import Autocomplete from '@mui/joy/Autocomplete';
 import BaseModal from "../basic/BaseModal.jsx";
 import Add from '@mui/icons-material/Add';
 
@@ -108,15 +108,60 @@ function Renters() {
         getAllPlaces();
     }, []);
 
+    const [checked, setChecked] = React.useState(false);
+
     return (
         <>
+
             <BaseModal open={openModalAddRenter} onClose={()=>setModalAddRenter(!openModalAddRenter)}>
-                <Input placeholder="Название"/>
-                <Autocomplete options={places}
-                              groupBy={(option) => option?.name}
-                              getOptionLabel={(option) => option?.name}
-                              sx={{zIndex:10}}
+                <Stack gap={2}>
+
+                <Input
+                    id={"name"}
+                    placeholder="Название"/>
+
+                <Autocomplete
+                    id={"place"}
+                    placeholder={"Помещение (офис)"}
+                    options={places}
+                    getOptionLabel={(option) => option?.name}
+                    isOptionEqualToValue={(option)=>option.id}
+                    slotProps={{
+                        listbox: { disablePortal: true, sx: { maxHeight: 160 } },
+                    }}
                 />
+
+
+                    <Input
+                        id={"tarif"}
+                        placeholder="Тариф"
+                        endDecorator={'₽ в мес.'}
+                    />
+
+
+                    <Input
+                        id={"time"}
+                        placeholder="Срок аренды"
+                        endDecorator={'мес.'}
+                    />
+
+
+                    <Checkbox
+                        label="Ремонт от бизнес-центра "
+                    />
+
+
+
+
+                <Stack direction="row" gap={2}>
+                <Typography>Активен: </Typography>
+                <Switch
+                    checked={checked}
+                    onChange={(event) => setChecked(event.target.checked)}/>
+                </Stack>
+
+                </Stack>
+
                 <Button fullWidth sx={{mb:1, mt:4}}>Добавить</Button>
                 <Button variant={'outlined'} fullWidth onClick={()=>setModalAddRenter(false)}>Отмена</Button>
             </BaseModal>
