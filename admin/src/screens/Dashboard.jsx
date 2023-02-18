@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import FilterWidget from "../components/dashboardTabs/FilterWidget.jsx";
 import BasicGrid from "../components/gridStyles/BasicGrid.jsx";
+import Renters from "../components/dashboardTabs/Renters.jsx";
 
 
 function Dashboard() {
@@ -35,9 +36,9 @@ function Dashboard() {
                 console.log(data);
             }
         } catch (error) {
-            alert(error.message)
+            console.log(error.message);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
@@ -89,6 +90,7 @@ function Dashboard() {
                         <Routes>
                             <Route path='/' element={<FilterWidget />}/>
                             <Route path='/centers' element={<BusinessCenter />}/>
+                            <Route path='/renters' element={<Renters />}/>
                             <Route path='/places' element={<BasicGrid />}/>
                         </Routes >
                 </Router>

@@ -57,16 +57,18 @@ function TeamNav() {
                                 <ArticleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
                             <ListItemContent>Площади</ListItemContent>
-                            <Chip
-                                variant="soft"
-                                color="info"
-                                size="sm"
-                                sx={{ borderRadius: 'sm' }}
-                            >
-                                Test
-                            </Chip>
                         </ListItemButton>
                     </ListItem>
+
+                    <ListItem>
+                        <ListItemButton onClick={()=>window.location.href="/renters"}>
+                            <ListItemDecorator sx={{ color: 'neutral.500' }}>
+                                <ArticleRoundedIcon fontSize="small" />
+                            </ListItemDecorator>
+                            <ListItemContent>Арендаторы</ListItemContent>
+                        </ListItemButton>
+                    </ListItem>
+
                 </List>
             </ListItem>
         </List>
