@@ -7,12 +7,27 @@ import {supabase} from "../../API/API.js";
 
 const squereSet = ["100","200","300","100","200","300","100","200","300",];
 
-const freeNeedRepair = 'invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)'
-const freeNoRepair = 'invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) brightness(90%) contrast(100%)'
-const busyOnRepair = 'invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)'
-const busyNoRepair = 'invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)'
+const freeNeedRepair = 'invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)';
+const freeNoRepair = 'invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) brightness(90%) contrast(100%)';
+const busyOnRepair = 'invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)';
+const busyNoRepair = 'invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)';
  
-
+const findStyle = ({i}) => {
+  switch (i) {
+    case 'freeNeedRepair':
+      return "invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)"
+      break;
+    case 'freeNoRepair':
+      return "invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) brightness(90%) contrast(100%)"
+      break;
+    case 'busyOnRepair':
+      return "invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)"
+      break;
+    default:
+      return "invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)"
+      break;
+  }
+}
 
 const ShowContent = styled('div')(({size, stageName}) => ({
   '&:hover::before' : {
@@ -24,7 +39,7 @@ const ShowContent = styled('div')(({size, stageName}) => ({
   },
   '&:hover': {
     'img' : {
-      filter: `"${stageName}"`,
+      filter: findStyle(stageName),
     }
   }
 }));
@@ -67,6 +82,7 @@ export default function BasicGrid() {
 }
 
   React.useEffect(() => {
+    console.log(findStyle('hui'));
     getAllCenters();
   }, []);
 
