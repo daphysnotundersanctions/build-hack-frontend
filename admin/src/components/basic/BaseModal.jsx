@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from "@mui/joy/Modal";
 import ModalDialog from "@mui/joy/ModalDialog";
+import {Autocomplete} from "@mui/joy";
 
 function BaseModal({open, onClose, children}) {
     return (
@@ -8,7 +9,7 @@ function BaseModal({open, onClose, children}) {
             <ModalDialog
                 aria-labelledby="basic-modal-dialog-title"
                 aria-describedby="basic-modal-dialog-description"
-                sx={{ maxWidth: 500}}
+                sx={{ maxWidth: 500 }}
             >
                 {children}
             </ModalDialog>

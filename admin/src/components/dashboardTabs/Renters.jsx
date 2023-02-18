@@ -1,11 +1,27 @@
 import React from 'react';
 import {supabase} from "../../API/API.js";
-import {AspectRatio, Button, Card, CardOverflow, CircularProgress, Divider, Grid, Typography} from "@mui/joy";
+import {
+    AspectRatio,
+    Autocomplete,
+    Button,
+    Card,
+    CardOverflow,
+    CircularProgress,
+    Divider,
+    Grid,
+    Input, TextField,
+    Typography
+} from "@mui/joy";
+import BaseModal from "../basic/BaseModal.jsx";
+import Add from '@mui/icons-material/Add';
+
 
 function Renters() {
 
     const [loading,setLoading] = React.useState(false);
     const [renters, setRenters] = React.useState([]);
+    const [places, setPlaces] = React.useState([]);
+    const [openModalAddRenter, setModalAddRenter] = React.useState(false);
 
     function OverflowCard({photo, name, floor, place}) {
         return (
@@ -67,14 +83,45 @@ function Renters() {
             setLoading(false);
         }
     }
+    const getAllPlaces = async () => {
+        try {
+            setLoading(true)
+
+            const { data, error, status } = await supabase
+                .from('place')
+                .select('*')
+            if (error && status !== 406) {
+                throw error
+            }
+            if (data) {
+                setPlaces(data);
+            }
+        } catch (error) {
+            console.log(error.message);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     React.useEffect(() => {
         getAllRenters();
+        getAllPlaces();
     }, []);
 
     return (
         <>
-            <Button>Добавить арендатора</Button>
+            <BaseModal open={openModalAddRenter} onClose={()=>setModalAddRenter(!openModalAddRenter)}>
+                <Input placeholder="Название"/>
+                <Autocomplete options={places}
+                              groupBy={(option) => option?.name}
+                              getOptionLabel={(option) => option?.name}
+                              sx={{zIndex:10}}
+                />
+                <Button fullWidth sx={{mb:1, mt:4}}>Добавить</Button>
+                <Button variant={'outlined'} fullWidth onClick={()=>setModalAddRenter(false)}>Отмена</Button>
+            </BaseModal>
+
+            <Button startDecorator={<Add />} onClick={()=>setModalAddRenter(!openModalAddRenter)}>Добавить арендатора</Button>
 
             {
                 loading ? <CircularProgress sx={{display:'flex', mt:'50%', mr:'50%', ml:'35%'}}/> :
@@ -83,7 +130,7 @@ function Renters() {
                     {
                         renters?.map((renter, i) => {
                             return (
-                                <OverflowCard key={i} name={renter.name} place={renter.place} photo={renter.photo}/>
+                                <OverflowCard key={i} name={renter.name} place={`${places[renter.place]?.name}`} photo={renter.photo}/>
                             )
                         })
                     }
