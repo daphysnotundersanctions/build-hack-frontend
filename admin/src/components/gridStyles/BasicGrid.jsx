@@ -68,8 +68,8 @@ export default function BasicGrid() {
         }
 
         if (data) {
-            setPlaces(data);
-            console.log(data);
+            setPlaces(data.sort((age1, age2) => age1['id'] > age2['id'] ? 1 : -1));
+            console.log(data.sort((age1, age2) => age1['id'] > age2['id'] ? 1 : -1));
         }
     } catch (error) {
         console.log(error.message);
