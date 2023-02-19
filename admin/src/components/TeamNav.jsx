@@ -15,7 +15,6 @@ import AssignmentIndRoundedIcon from "@mui/icons-material/AssignmentIndRounded.j
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded.js";
 
 function TeamNav() {
-    const route = window.location.href
     return (
         <List size="sm" sx={{ '--List-item-radius': '8px', '--List-gap': '4px' }}>
             <ListItem nested>
