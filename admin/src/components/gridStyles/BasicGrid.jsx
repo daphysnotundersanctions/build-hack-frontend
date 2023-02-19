@@ -54,28 +54,28 @@ export default function BasicGrid() {
   const setCardValue = (i) => {
     switch(i) {
       case 0 :
-        return <OverflowCard name={'120м2'} plaseState={'Свободна, требует ремонта'} />
+        return <OverflowCard name={'120м2'} plaseState={'Свободна, требует ремонта'} company={'Crystall'} />
       break;
       case 1 :
-        return <OverflowCard name={'50м2'} plaseState={'Занята'} />
+        return <OverflowCard name={'50м2'} plaseState={'Занята'} company={'zOzon'} />
       break;
       case 2:
-        return  <OverflowCard name={'170м2'} plaseState={'Свободна, ремонта не требует'} />
+        return  <OverflowCard name={'170м2'} plaseState={'Свободна, ремонта не требует'} company={'Велики.клаб'} />
       break;
       case 3 :
-        return <OverflowCard name={'200м2'} plaseState={'Занята, на ремонте'} />
+        return <OverflowCard name={'200м2'} plaseState={'Занята, на ремонте'} company={'Яндекс.вода'} />
       break;
       case 4 :
-        return <OverflowCard name={'150м2'} plaseState={'Занята, на ремонте'} />
+        return <OverflowCard name={'150м2'} plaseState={'Занята, на ремонте'} company={'ООО "Как рыба в воде"'} />
       break;
       case 5 :
-        return <OverflowCard name={'170м2'} plaseState={'Занята, на ремонте'} />
+        return <OverflowCard name={'170м2'} plaseState={'Занята, на ремонте'} company={'ИП "Газ есть"'} />
       break;
       case 6 :
-        return <OverflowCard name={'150м2'} plaseState={'Свободна, требует ремонта'} />
+        return <OverflowCard name={'150м2'} plaseState={'Свободна, требует ремонта'} company={'MetroStroy'} />
       break;
       case 7 :
-        return <OverflowCard name={'200м2'} plaseState={'Свободна, ремонта не требует'} />
+        return <OverflowCard name={'200м2'} plaseState={'Свободна, ремонта не требует'} company={'Disco elysium'} />
       break;
       case 8 :
         return <OverflowCard name={'70м2'} plaseState={'Занята'} />
@@ -85,7 +85,7 @@ export default function BasicGrid() {
       }
   }
 
-  function OverflowCard({ name, plaseState}) {
+  function OverflowCard({ name, plaseState, company}) {
     return (
         <Card variant="outlined" sx={{ width: 420, mt:5 }}>
             <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
@@ -93,6 +93,9 @@ export default function BasicGrid() {
             </Typography>
             <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
                 Состояние помещения: {plaseState}
+            </Typography>
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+                Арендует: {company}
             </Typography>
             <Divider />
             <CardOverflow
