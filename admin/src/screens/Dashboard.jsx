@@ -12,6 +12,7 @@ import {
 import FilterWidget from "../components/dashboardTabs/FilterWidget.jsx";
 import BasicGrid from "../components/gridStyles/BasicGrid.jsx";
 import Renters from "../components/dashboardTabs/Renters.jsx";
+import PdfGenerator from "../components/docsEditor/PdfGenerator.jsx";
 
 
 function Dashboard() {
@@ -89,7 +90,7 @@ function Dashboard() {
                 <Router>
                     <Routes>
                         <Route path='/' element={<FilterWidget />}/>
-                        <Route path='/centers' element={<BusinessCenter />}/>
+                        <Route path='/docs' element={<PdfGenerator />}/>
                         <Route path='/renters' element={<Renters />}/>
                         <Route path='/places' element={<BasicGrid />}/>
                     </Routes >
