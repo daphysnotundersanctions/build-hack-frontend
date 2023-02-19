@@ -35,7 +35,10 @@ function TeamNav() {
                     }}
                 >
                     <ListItem>
-                        <ListItemButton variant="soft" color="primary" onClick={()=>window.location.href="/"}>
+                        <ListItemButton 
+                            variant={ (window.location.pathname  === '/') ? "soft" : ''}
+                            color="primary"
+                            onClick={()=>window.location.href="/"}>
                             <ListItemDecorator sx={{ color: 'inherit' }}>
                                 <PeopleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
@@ -43,7 +46,10 @@ function TeamNav() {
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton onClick={()=>window.location.href="/centers"}>
+                        <ListItemButton 
+                            variant={ (window.location.pathname  === '/centers') ? "soft" : ''}
+                            color="primary"
+                            onClick={()=>window.location.href="/centers"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <AssignmentIndRoundedIcon fontSize="small" />
                             </ListItemDecorator>
@@ -51,7 +57,10 @@ function TeamNav() {
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
-                        <ListItemButton onClick={()=>window.location.href="/places"}>
+                        <ListItemButton 
+                            variant={ (window.location.pathname  === '/places') ? "soft" : ''}
+                            color="primary"
+                            onClick={()=>window.location.href="/places"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <ArticleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
@@ -60,7 +69,10 @@ function TeamNav() {
                     </ListItem>
 
                     <ListItem>
-                        <ListItemButton onClick={()=>window.location.href="/renters"}>
+                        <ListItemButton 
+                            variant={ (window.location.pathname  === '/renters') ? "soft" : ''}
+                            color="primary"
+                            onClick={()=>window.location.href="/renters"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
                                 <ArticleRoundedIcon fontSize="small" />
                             </ListItemDecorator>

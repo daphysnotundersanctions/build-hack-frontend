@@ -38,8 +38,6 @@ const ShowContent = styled('div')(({squereInfo, stageName}) => ({
   }
 }));
 
-const imageSet = ['0','1','2_door1','0','1','2_door1','0','1','2_door1',]
-
 export default function BasicGrid() {
   const [loading, setLoading] = React.useState(false);
   const [centers, setPlaces] = React.useState([]);
@@ -85,7 +83,7 @@ export default function BasicGrid() {
   }, []);
 
   return (
-    <Grid sx={{display : 'grid', gridTemplateColumns : '1fr 1fr 1fr'}}>
+    <Grid sx={{display : 'grid', gap: '10px', gridTemplateColumns : '1fr 1fr 1fr'}}>
           {drawImgs}
     </Grid>
   );
