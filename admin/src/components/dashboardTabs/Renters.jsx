@@ -11,9 +11,9 @@ import {
     Input, Stack, Switch,
     Typography
 } from "@mui/joy";
-import Autocomplete from '@mui/joy/Autocomplete';
 import BaseModal from "../basic/BaseModal.jsx";
 import Add from '@mui/icons-material/Add';
+import AddRenterForm from "../AddRenterForm.jsx";
 
 
 function Renters() {
@@ -102,96 +102,29 @@ function Renters() {
             setLoading(false);
         }
     }
-    const addNewRenter = async (name,status=true,tariff,end_date,repair_from_bc=true) => {
-        try {
-            setLoading(true)
 
-            const { data, error } = await supabase
-                .from('renter')
-                .insert([
-                    {   some_column: 'someValue',
-                        other_column: 'otherValue' },
-                ])
-            if (error !== 406) {
-                throw error
-            }
-            if (data) {
-                setModalAddRenter(false);
-            }
-        } catch (error) {
-            console.log(error.message);
-        } finally {
-            setLoading(false);
-        }
-    }
 
     React.useEffect(() => {
         getAllRenters();
         getAllPlaces();
     }, []);
 
-    const [checked, setChecked] = React.useState(false);
+
 
     return (
         <>
 
             <BaseModal open={openModalAddRenter} onClose={()=>setModalAddRenter(!openModalAddRenter)}>
-                <Stack gap={2}>
-
-                <Input
-                    id={"name"}
-                    placeholder="Название"/>
-
-                <Autocomplete
-                    id={"place"}
-                    placeholder={"Помещение (офис)"}
-                    options={places}
-                    getOptionLabel={(option) => option?.name}
-                    isOptionEqualToValue={(option)=>option.id}
-                    slotProps={{
-                        listbox: { disablePortal: true, sx: { maxHeight: 160 } },
-                    }}
-                />
-
-
-                    <Input
-                        id={"tarif"}
-                        placeholder="Тариф"
-                        endDecorator={'₽ в мес.'}
-                    />
-
-
-                    <Input
-                        id={"time"}
-                        placeholder="Срок аренды"
-                        endDecorator={'мес.'}
-                    />
-
-
-                    <Checkbox
-                        label="Ремонт от бизнес-центра "
-                    />
-
-
-                <Stack direction="row" gap={2}>
-                <Typography>Активен: </Typography>
-                <Switch
-                    checked={checked}
-                    onChange={(event) => setChecked(event.target.checked)}/>
-                </Stack>
-
-                </Stack>
-
-                <Button fullWidth sx={{mb:1, mt:4}}>Добавить</Button>
+                <AddRenterForm onClose={()=>setModalAddRenter(false)}/>
                 <Button variant={'outlined'} fullWidth onClick={()=>setModalAddRenter(false)}>Отмена</Button>
             </BaseModal>
 
-            <Button startDecorator={<Add />} onClick={()=>setModalAddRenter(!openModalAddRenter)}>Добавить арендатора</Button>
+            <Button startDecorator={<Add />} onClick={()=>setModalAddRenter(!openModalAddRenter)} >Добавить арендатора</Button>
 
             {
                 loading ? <CircularProgress sx={{display:'flex', mt:'50%', mr:'50%', ml:'35%'}}/> :
                 <Grid container spacing={2} sx={{flexGrow: 1, mt: 1}}>
-                    <Grid xs={6} md={8}>
+                    <Grid item xs={4}>
                     {
                         renters?.map((renter, i) => {
                             return (
