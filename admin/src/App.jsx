@@ -13,7 +13,6 @@ function App() {
             <CssBaseline />
 
 
-
             <GlobalStyles
                 styles={{
                     ':root': {

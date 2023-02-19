@@ -102,6 +102,28 @@ function Renters() {
             setLoading(false);
         }
     }
+    const addNewRenter = async (name,status=true,tariff,end_date,repair_from_bc=true) => {
+        try {
+            setLoading(true)
+
+            const { data, error } = await supabase
+                .from('renter')
+                .insert([
+                    {   some_column: 'someValue',
+                        other_column: 'otherValue' },
+                ])
+            if (error !== 406) {
+                throw error
+            }
+            if (data) {
+                setModalAddRenter(false);
+            }
+        } catch (error) {
+            console.log(error.message);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     React.useEffect(() => {
         getAllRenters();

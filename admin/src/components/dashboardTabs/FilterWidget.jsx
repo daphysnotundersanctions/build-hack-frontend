@@ -3,6 +3,7 @@ import {Box, Container, Typography} from "@mui/joy";
 import Valueslider from "../basic/Valueslider.jsx";
 import CoffeeSwitch from "../basic/CoffeeSwitch.jsx";
 import SquareSwitch from "../basic/SquareSwitch.jsx";
+import PdfGenerator from "../docsEditor/PdfGenerator.jsx";
 
 export default function FilterWidget() {
     return (
@@ -18,6 +19,7 @@ export default function FilterWidget() {
                 <CoffeeSwitch/>
             </Box>
             <SquareSwitch/>
+            <PdfGenerator/>
         </Container>
     );
 }

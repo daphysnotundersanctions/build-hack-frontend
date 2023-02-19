@@ -82,15 +82,12 @@ export default function BasicGrid() {
 }
 
   React.useEffect(() => {
-    console.log(findStyle('hui'));
     getAllCenters();
   }, []);
 
   return (
-    <div>
     <Grid sx={{display : 'grid', gridTemplateColumns : '1fr 1fr 1fr'}}>
           {drawImgs}
     </Grid>
-    </div>
   );
 }
