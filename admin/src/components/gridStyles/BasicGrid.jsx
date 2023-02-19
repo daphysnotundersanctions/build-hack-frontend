@@ -62,7 +62,7 @@ export default function BasicGrid() {
         return <OverflowCard name={'50м2'} plaseState={'Занята'} company={'zOzon'} />
       break;
       case 2:
-        return  <OverflowCard name={'170м2'} plaseState={'Свободна, ремонта не требует'} company={'Велики.клаб'} />
+        return  <OverflowCard name={'170м2'} plaseState={'Свободна, ремонта не требует'} company={'Нету'} />
       break;
       case 3 :
         return <OverflowCard name={'200м2'} plaseState={'Занята, на ремонте'} company={'Яндекс.вода'} />
@@ -74,10 +74,10 @@ export default function BasicGrid() {
         return <OverflowCard name={'170м2'} plaseState={'Занята, на ремонте'} company={'ИП "Газ есть"'} />
       break;
       case 6 :
-        return <OverflowCard name={'150м2'} plaseState={'Свободна, требует ремонта'} company={'MetroStroy'} />
+        return <OverflowCard name={'150м2'} plaseState={'Свободна, требует ремонта'} company={'Нету'} />
       break;
       case 7 :
-        return <OverflowCard name={'200м2'} plaseState={'Свободна, ремонта не требует'} company={'Disco elysium'} />
+        return <OverflowCard name={'200м2'} plaseState={'Свободна, ремонта не требует'} company={'Нету'} />
       break;
       case 8 :
         return <OverflowCard name={'70м2'} plaseState={'Занята'} company={'ООО "Вот так поворот"'} />
