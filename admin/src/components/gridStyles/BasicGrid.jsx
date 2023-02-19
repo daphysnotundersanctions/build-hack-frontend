@@ -1,7 +1,13 @@
 import React from 'react'
 import './Grid.css'
 import { styled } from '@mui/material/styles';
-import Grid from '@mui/joy/Grid';
+import {
+    Card,
+    CardOverflow,
+    Divider,
+    Grid,
+    Typography
+} from "@mui/joy";
 import {supabase} from "../../API/API.js";
 
 
@@ -24,6 +30,8 @@ const findStyle = (i) => {
   }
 }
 
+
+
 const ShowContent = styled('div')(({squereInfo, stageName}) => ({
   '&:hover::before' : {
     content: `"${squereInfo}"`,
@@ -41,11 +49,79 @@ const ShowContent = styled('div')(({squereInfo, stageName}) => ({
 export default function BasicGrid() {
   const [loading, setLoading] = React.useState(false);
   const [centers, setPlaces] = React.useState([]);
+  const [place, setPlace] = React.useState(-1)
+
+  const setCardValue = (i) => {
+    switch(i) {
+      case 0 :
+        return <OverflowCard name={'120м2'} plaseState={'Свободна, требует ремонта'} />
+      break;
+      case 1 :
+        return <OverflowCard name={'50м2'} plaseState={'Занята'} />
+      break;
+      case 2:
+        return  <OverflowCard name={'170м2'} plaseState={'Свободна, ремонта не требует'} />
+      break;
+      case 3 :
+        return <OverflowCard name={'200м2'} plaseState={'Занята, на ремонте'} />
+      break;
+      case 4 :
+        return <OverflowCard name={'150м2'} plaseState={'Занята, на ремонте'} />
+      break;
+      case 5 :
+        return <OverflowCard name={'170м2'} plaseState={'Занята, на ремонте'} />
+      break;
+      case 6 :
+        return <OverflowCard name={'150м2'} plaseState={'Свободна, требует ремонта'} />
+      break;
+      case 7 :
+        return <OverflowCard name={'200м2'} plaseState={'Свободна, ремонта не требует'} />
+      break;
+      case 8 :
+        return <OverflowCard name={'70м2'} plaseState={'Занята'} />
+      break;
+      default : 
+        return null
+      }
+  }
+
+  function OverflowCard({ name, plaseState}) {
+    return (
+        <Card variant="outlined" sx={{ width: 420, mt:5 }}>
+            <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
+               Площадь : {name}
+            </Typography>
+            <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+                Состояние помещения: {plaseState}
+            </Typography>
+            <Divider />
+            <CardOverflow
+                variant="soft"
+                sx={{
+                    display: 'flex',
+                    gap: 1.5,
+                    py: 1.5,
+                    px: 'var(--Card-padding)',
+                    bgcolor: 'background.level1',
+                }}
+            >
+                <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
+
+                </Typography>
+                <Divider orientation="vertical" />
+                <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
+
+                </Typography>
+            </CardOverflow>
+        </Card>
+    );
+}
 
 
   const drawImgs = centers.map((i,id) => 
-      <ShowContent 
-        key={id} 
+      <ShowContent
+        key={id}
+        onClick={() => setPlace(id)}
         squereInfo={centers[id]?.square} 
         stageName={centers[id]?.status}
         sx={{maxWidth: 'fit-content', height: '150px'}}
@@ -83,8 +159,13 @@ export default function BasicGrid() {
   }, []);
 
   return (
+    <>
     <Grid sx={{display : 'grid', gap: '10px', gridTemplateColumns : '1fr 1fr 1fr'}}>
           {drawImgs}
     </Grid>
+    <div>
+      {setCardValue(place)}
+    </div>
+    </>
   );
 }
