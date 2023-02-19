@@ -4,7 +4,7 @@ import {
     AspectRatio,
     Button,
     Card,
-    CardOverflow, Checkbox,
+    CardOverflow,
     CircularProgress,
     Divider,
     Grid,
@@ -14,6 +14,9 @@ import {
 import BaseModal from "../basic/BaseModal.jsx";
 import Add from '@mui/icons-material/Add';
 import AddRenterForm from "../AddRenterForm.jsx";
+import SearchIcon from '@mui/icons-material/Search';
+import TableSortAndSelection from "./RentersTable.jsx";
+import TableRowsIcon from '@mui/icons-material/TableRows';
 
 
 function Renters() {
@@ -21,7 +24,9 @@ function Renters() {
     const [loading,setLoading] = React.useState(false);
     const [renters, setRenters] = React.useState([]);
     const [places, setPlaces] = React.useState([]);
+
     const [openModalAddRenter, setModalAddRenter] = React.useState(false);
+    const [openModalTable, setModalTable] = React.useState(false);
 
     function OverflowCard({photo, name, floor, place}) {
         return (
@@ -103,12 +108,10 @@ function Renters() {
         }
     }
 
-
     React.useEffect(() => {
         getAllRenters();
         getAllPlaces();
     }, []);
-
 
 
     return (
@@ -119,7 +122,14 @@ function Renters() {
                 <Button variant={'outlined'} fullWidth onClick={()=>setModalAddRenter(false)}>Отмена</Button>
             </BaseModal>
 
-            <Button startDecorator={<Add />} onClick={()=>setModalAddRenter(!openModalAddRenter)} >Добавить арендатора</Button>
+            <BaseModal open={openModalTable} onClose={()=>setModalTable(true)}>
+                <TableSortAndSelection renters={renters} places={places}/>
+                <Button variant={'outlined'} fullWidth onClick={()=>setModalTable(false)} sx={{mt:1}}>Закрыть</Button>
+            </BaseModal>
+
+            <Button startDecorator={<Add />} onClick={()=>setModalAddRenter(!openModalAddRenter)} > Добавить арендатора </Button>
+            <Button startDecorator={<TableRowsIcon />} onClick={()=>setModalTable(!openModalTable)} sx={{m:1}}> Таблица </Button>
+
 
             {
                 loading ? <CircularProgress sx={{display:'flex', mt:'50%', mr:'50%', ml:'35%'}}/> :

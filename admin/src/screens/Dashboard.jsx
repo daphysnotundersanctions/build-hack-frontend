@@ -87,12 +87,12 @@ function Dashboard() {
             <Layout.Main>
 
                 <Router>
-                        <Routes>
-                            <Route path='/' element={<FilterWidget />}/>
-                            <Route path='/centers' element={<BusinessCenter />}/>
-                            <Route path='/renters' element={<Renters />}/>
-                            <Route path='/places' element={<BasicGrid />}/>
-                        </Routes >
+                    <Routes>
+                        <Route path='/' element={<FilterWidget />}/>
+                        <Route path='/centers' element={<BusinessCenter />}/>
+                        <Route path='/renters' element={<Renters />}/>
+                        <Route path='/places' element={<BasicGrid />}/>
+                    </Routes >
                 </Router>
 
             </Layout.Main>

@@ -9,7 +9,6 @@ function BaseModal({open, onClose, children}) {
             <ModalDialog
                 aria-labelledby="basic-modal-dialog-title"
                 aria-describedby="basic-modal-dialog-description"
-                sx={{ maxWidth: 500 }}
             >
                 {children}
             </ModalDialog>
