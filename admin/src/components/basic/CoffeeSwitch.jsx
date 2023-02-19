@@ -9,13 +9,9 @@ function CoffeeSwitch() {
             color={on ? 'primary' : 'neutral'}
             slotProps={{ input: { 'aria-label': 'dark mode' } }}
             sx={{mt:1}}
-            startDecorator={
-                <CoffeeIcon
-                    sx={{ color: on ? 'text.tertiary' : 'neutral.500' }}
-                />
-            }
+
             endDecorator={
-                <CoffeeIcon sx={{ color: on ? 'primary.200' : 'text.tertiary' }} />
+                <CoffeeIcon sx={{ color: on ? 'success.400' : 'text.tertiary' }} />
             }
             checked={on}
             onChange={(event) => setOn(event.target.checked)}

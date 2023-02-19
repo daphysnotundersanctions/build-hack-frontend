@@ -3,23 +3,23 @@ import {Slider, Box} from "@mui/joy";
 
 
 
-function Valueslider({symbol}) {
+function Valueslider({symbol, mark1, mark2, mark3, mark4, max}) {
     const marks = [
         {
-            value: 0,
-            label: `0${symbol}`,
+            value: mark1,
+            label: `${mark1} ${symbol}`,
         },
         {
-            value: 20,
-            label: `20${symbol}`,
+            value: mark2,
+            label: `${mark2} ${symbol}`,
         },
         {
-            value: 37,
-            label: `37${symbol}`,
+            value: mark3,
+            label: `${mark3} ${symbol}`,
         },
         {
-            value: 100,
-            label: `100${symbol}`,
+            value: mark4,
+            label: `${mark4} ${symbol}`,
         },
     ];
 
@@ -31,9 +31,10 @@ function Valueslider({symbol}) {
         <Box sx={{ width: 300 }}>
             <Slider
                 aria-label="Always visible"
-                defaultValue={80}
+                defaultValue={10}
                 getAriaValueText={valueText}
-                step={10}
+                step={5}
+                max={max}
                 marks={marks}
                 valueLabelDisplay="on"
             />

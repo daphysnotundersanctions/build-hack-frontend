@@ -1,7 +1,7 @@
 import React from 'react';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import {Switch} from "@mui/joy";
-function SquareSwitch() {
+function GymSwitch() {
     const [on, setOn] = React.useState(false);
 
     return (
@@ -11,7 +11,7 @@ function SquareSwitch() {
             sx={{mt:1}}
 
             endDecorator={
-                <LocalDiningIcon sx={{ color: on ? 'success.400' : 'text.tertiary' }} />
+                <FitnessCenterIcon sx={{ color: on ? 'success.400' : 'text.tertiary' }} />
             }
             checked={on}
             onChange={(event) => setOn(event.target.checked)}
@@ -19,4 +19,4 @@ function SquareSwitch() {
     );
 }
 
-export default SquareSwitch;
+export default GymSwitch;
