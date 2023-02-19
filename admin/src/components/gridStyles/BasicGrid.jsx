@@ -35,6 +35,8 @@ const findStyle = (i) => {
 const ShowContent = styled('div')(({squereInfo, stageName}) => ({
   '&:hover::before' : {
     content: `"${squereInfo}"`,
+    paddingTop: '60px',
+    paddingLeft: '45px',
     position : 'absolute',
     zIndex: 999,
     overflow  : 'hidden',
