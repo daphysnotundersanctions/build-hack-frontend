@@ -12,6 +12,7 @@ import {
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded.js";
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded.js";
 import AssignmentIndRoundedIcon from "@mui/icons-material/AssignmentIndRounded.js";
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn.js';
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded.js";
 import BusinessIcon from '@mui/icons-material/Business';
 import SsidChartIcon from '@mui/icons-material/SsidChart';
@@ -69,7 +70,6 @@ function TeamNav() {
                             <ListItemContent>Площади</ListItemContent>
                         </ListItemButton>
                     </ListItem>
-
                     <ListItem>
                         <ListItemButton 
                             variant={ (window.location.pathname  === '/renters') ? "soft" : ''}
@@ -79,6 +79,17 @@ function TeamNav() {
                                 <AssignmentIndRoundedIcon fontSize="small" />
                             </ListItemDecorator>
                             <ListItemContent>Арендаторы</ListItemContent>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemButton 
+                            variant={ (window.location.pathname  === '/sales') ? "soft" : ''}
+                            color="primary"
+                            onClick={()=>window.location.href="/sales"}>
+                            <ListItemDecorator sx={{ color: 'neutral.500' }}>
+                                <MonetizationOnIcon fontSize="small" />
+                            </ListItemDecorator>
+                            <ListItemContent>Бонусная программа</ListItemContent>
                         </ListItemButton>
                     </ListItem>
 
