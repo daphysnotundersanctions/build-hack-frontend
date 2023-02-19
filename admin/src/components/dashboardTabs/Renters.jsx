@@ -124,6 +124,7 @@ function Renters() {
 
             <BaseModal open={openModalTable} onClose={()=>setModalTable(true)}>
                 <TableSortAndSelection renters={renters} places={places}/>
+                <Button startDecorator={<Add />} fullWidth onClick={()=>setModalAddRenter(!openModalAddRenter)} sx={{mt:1}}> Добавить арендатора </Button>
                 <Button variant={'outlined'} fullWidth onClick={()=>setModalTable(false)} sx={{mt:1}}>Закрыть</Button>
             </BaseModal>
 

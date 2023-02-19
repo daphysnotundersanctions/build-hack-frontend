@@ -13,6 +13,8 @@ import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownR
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded.js";
 import AssignmentIndRoundedIcon from "@mui/icons-material/AssignmentIndRounded.js";
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded.js";
+import BusinessIcon from '@mui/icons-material/Business';
+import SsidChartIcon from '@mui/icons-material/SsidChart';
 
 function TeamNav() {
     return (
@@ -40,20 +42,20 @@ function TeamNav() {
                             color="primary"
                             onClick={()=>window.location.href="/"}>
                             <ListItemDecorator sx={{ color: 'inherit' }}>
-                                <PeopleRoundedIcon fontSize="small" />
+                                <SsidChartIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>Компоненты всякие</ListItemContent>
+                            <ListItemContent>Статистика</ListItemContent>
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
                         <ListItemButton 
-                            variant={ (window.location.pathname  === '/centers') ? "soft" : ''}
+                            variant={ (window.location.pathname  === '/docs') ? "soft" : ''}
                             color="primary"
-                            onClick={()=>window.location.href="/centers"}>
+                            onClick={()=>window.location.href="/docs"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
-                                <AssignmentIndRoundedIcon fontSize="small" />
+                                <ArticleRoundedIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>Бизнес-центры</ListItemContent>
+                            <ListItemContent>Документы</ListItemContent>
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
@@ -62,7 +64,7 @@ function TeamNav() {
                             color="primary"
                             onClick={()=>window.location.href="/places"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
-                                <ArticleRoundedIcon fontSize="small" />
+                                <BusinessIcon fontSize="small" />
                             </ListItemDecorator>
                             <ListItemContent>Площади</ListItemContent>
                         </ListItemButton>
@@ -74,7 +76,7 @@ function TeamNav() {
                             color="primary"
                             onClick={()=>window.location.href="/renters"}>
                             <ListItemDecorator sx={{ color: 'neutral.500' }}>
-                                <ArticleRoundedIcon fontSize="small" />
+                                <AssignmentIndRoundedIcon fontSize="small" />
                             </ListItemDecorator>
                             <ListItemContent>Арендаторы</ListItemContent>
                         </ListItemButton>
