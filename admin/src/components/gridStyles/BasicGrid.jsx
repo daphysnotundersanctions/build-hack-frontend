@@ -7,11 +7,6 @@ import {supabase} from "../../API/API.js";
 
 const squereSet = ["100","200","300","100","200","300","100","200","300",];
 
-const freeNeedRepair = 'invert(100%) sepia(24%) saturate(6028%) hue-rotate(317deg) brightness(91%) contrast(86%)';
-const freeNoRepair = 'invert(90%) sepia(5%) saturate(3652%) hue-rotate(59deg) brightness(90%) contrast(100%)';
-const busyOnRepair = 'invert(58%) sepia(12%) saturate(2484%) hue-rotate(333deg) brightness(107%) contrast(80%)';
-const busyNoRepair = 'invert(79%) sepia(13%) saturate(202%) hue-rotate(244deg) brightness(81%) contrast(90%)';
- 
 const findStyle = (i) => {
   switch (i) {
     case 'freeNeedRepair':
@@ -29,13 +24,12 @@ const findStyle = (i) => {
   }
 }
 
-const ShowContent = styled('div')(({size, stageName}) => ({
+const ShowContent = styled('div')(({squereInfo, stageName}) => ({
   '&:hover::before' : {
-    content: `"${size}"`,
+    content: `"${squereInfo}"`,
     position : 'absolute',
     zIndex: 999,
     overflow  : 'hidden',
-    // background: 'rgba(39,62,84,0.82)',
   },
   '&:hover': {
     'img' : {
@@ -51,10 +45,15 @@ export default function BasicGrid() {
   const [centers, setPlaces] = React.useState([]);
 
 
-  const drawImgs = imageSet.map((i,id) => 
-      <ShowContent key={id} size={squereSet[id]} stageName={centers[id]?.status} sx={{maxWidth: 'fit-content', height: '150px'}}>
+  const drawImgs = centers.map((i,id) => 
+      <ShowContent 
+        key={id} 
+        squereInfo={centers[id]?.square} 
+        stageName={centers[id]?.status}
+        sx={{maxWidth: 'fit-content', height: '150px'}}
+      >
         <Grid>
-          <img className='gridImg' width={'150'} src={`./blueprint/${i}.png`} />
+          <img className='gridImg' width={'150'} src={`./blueprint/${id}.png`} />
         </Grid>
       </ShowContent>
   )
