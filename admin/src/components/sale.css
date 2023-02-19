@@ -1,0 +1,11 @@
+.salesGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media screen and (max-width : 1200px) {
+    .salesGrid {
+        display: flex;
+        flex-direction: column;
+    }
+}
