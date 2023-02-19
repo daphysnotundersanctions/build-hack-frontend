@@ -44,7 +44,7 @@ function TeamNav() {
                             <ListItemDecorator sx={{ color: 'inherit' }}>
                                 <SsidChartIcon fontSize="small" />
                             </ListItemDecorator>
-                            <ListItemContent>Статистика</ListItemContent>
+                            <ListItemContent>Виджет</ListItemContent>
                         </ListItemButton>
                     </ListItem>
                     <ListItem>
