@@ -15,11 +15,11 @@ import AssignmentIndRoundedIcon from "@mui/icons-material/AssignmentIndRounded.j
 import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded.js";
 
 function TeamNav() {
+    const route = window.location.href
     return (
         <List size="sm" sx={{ '--List-item-radius': '8px', '--List-gap': '4px' }}>
             <ListItem nested>
-                <ListSubheader>
-                    test
+                {/* <ListSubheader>
                     <IconButton
                         size="sm"
                         variant="plain"
@@ -28,7 +28,7 @@ function TeamNav() {
                     >
                         <KeyboardArrowDownRoundedIcon fontSize="small" color="primary" />
                     </IconButton>
-                </ListSubheader>
+                </ListSubheader> */}
                 <List
                     aria-labelledby="nav-list-browse"
                     sx={{

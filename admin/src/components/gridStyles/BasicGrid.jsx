@@ -53,7 +53,7 @@ export default function BasicGrid() {
         sx={{maxWidth: 'fit-content', height: '150px'}}
       >
         <Grid>
-          <img className='gridImg' width={'150'} src={`./blueprint/${id}.png`} />
+          <img className='gridImg' width={'150'} src={`./blueprint/${centers[id]?.position}.png`} />
         </Grid>
       </ShowContent>
   )
